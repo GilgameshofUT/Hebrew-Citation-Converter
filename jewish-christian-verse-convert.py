@@ -22,9 +22,9 @@ def get_valid_book_name(book_input):
     book_input = book_input.lower().strip()
     return BOOK_MAPPING.get(book_input, book_input)
 
-def hebrew_to_english_verse(book, chapter, verse):
+def jewish_to_christian_verse(book, chapter, verse):
     """
-    Converts a Hebrew verse reference to its corresponding English reference.
+    Converts a verse reference from the Jewish versification to its corresponding Christian versification.
 
     Args:
         book (str): The book name (can be full name or abbreviation).
@@ -32,7 +32,7 @@ def hebrew_to_english_verse(book, chapter, verse):
         verse (int): The verse number.
 
     Returns:
-        str: The corresponding English verse reference.
+        str: The corresponding Christian versification reference.
     """
 
     book = get_valid_book_name(book)
@@ -2006,12 +2006,12 @@ def hebrew_to_english_verse(book, chapter, verse):
 
 if __name__ == "__main__":
     while True:
-        reference = input("Enter a Hebrew verse reference (e.g., Gen 32:1): ")
+        reference = input("Enter a Jewish versification reference (e.g., Gen 32:1): ")
         if reference.lower() == "quit":
             break
         book, chapter_verse = reference.split()
         chapter, verse = map(int, chapter_verse.split(':'))
 
-        result = hebrew_to_english_verse(book, chapter, verse)
+        result = jewish_to_christian_verse(book, chapter, verse)
         print(f"{reference} -> {result}")
 
